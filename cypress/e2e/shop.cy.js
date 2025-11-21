@@ -1,6 +1,6 @@
 describe('Shop page tests', () => {
   beforeEach(() => {
-    cy.visit('https://shop.telnyx.com/');
+    cy.visit('/');
   });
   
   it('should have at least 1 item in the cart after adding', () => {

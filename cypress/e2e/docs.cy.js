@@ -1,6 +1,6 @@
 describe('Docs search', () => {
   it('allows user to type a search query and clear it in the Docs search modal', () => {
-    cy.visit('https://developers.telnyx.com');
+    cy.visit('/');
     cy.get('button[aria-label="Search"]').click();
 
     const newItem = 'keyboard';

@@ -4,6 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "cy:open:shop": "cypress open --config-file cypress.shop.config.js",
+    "cy:run:shop": "cypress run --config-file cypress.shop.config.js",
+    "cy:run:shop:record": "cypress run --config-file cypress.shop.config.js --record --key $CYPRESS_RECORD_KEY",
+    
+    "cy:open:docs": "cypress open --config-file cypress.docs.config.js",
+    "cy:run:docs": "cypress run --config-file cypress.docs.config.js",
+    "cy:run:docs:record": "cypress run --config-file cypress.docs.config.js --record --key $CYPRESS_RECORD_KEY",
+    
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
