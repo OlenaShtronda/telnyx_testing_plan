@@ -18,7 +18,7 @@ describe('Sign-up form content tests', () => {
     });
   });
 
-  it('should reveal promo code field with correct labels when clicking "Apply a promo code"', () => {
+  it('should reveal promo code field with correct labels after clicking "Apply a promo code"', () => {
     cy.get('#promo_code').should('not.exist');
 
     cy.contains('button', 'Apply a promo code')

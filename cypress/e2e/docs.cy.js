@@ -1,5 +1,5 @@
-describe('Docs search', () => {
-  it('allows user to type a search query and clear it in the Docs search modal', () => {
+describe('Dev Docs page tests', () => {
+  it('allows user to type a search query and clear it in the Dev Docs search modal', () => {
     cy.visit('/');
     cy.get('button[aria-label="Search"]').click();
 
