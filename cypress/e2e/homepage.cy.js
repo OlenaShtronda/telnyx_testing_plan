@@ -7,19 +7,20 @@ describe('Homepage tests', () => {
     cy.contains(/Conversational AI|Text To Speech|Speech To Text/i).should('be.visible');
   });
 
-  it('should switch to the "Text to Speech" tab', () => {
+  it('should switch to the "Text to speech" tab', () => {
     cy.get('button[aria-label="Text to speech"]').click();
 
     cy.contains(/Effortless text-to-speech/i).should('be.visible');
   });
 
-  it('should switch to the "Speech to Text" tab', () => {
+  it('should switch to the "Speech to text" tab', () => {
     cy.get('button[aria-label="Speech to text"]').click();
 
     cy.contains(/Real-time transcription/i).should('be.visible');
   });
   
   it('should switch to the "HD Voice AI" tab', () => {
+    cy.get('button[aria-label="Text to speech"]').click();
     cy.get('button[aria-label="HD Voice AI"]').click();
 
     cy.contains(/True HD voice, end-to-end/i).should('be.visible'); 
