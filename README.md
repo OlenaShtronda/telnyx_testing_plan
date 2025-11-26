@@ -27,27 +27,40 @@ npm install
 
 ```
 .
+├── .github/
+│   └── workflows/
+│       └── cypress.yml
+│
 ├── cypress/
 │   ├── e2e/
-│   │   ├── homepage.cy.js
 │   │   ├── docs.cy.js
-│   │   ├── global-coverage.cy.js
+│   │   ├── global_coverage.cy.js
+│   │   ├── homepage.cy.js
 │   │   ├── pricing.cy.js
-│   │   ├── signup.cy.js
-│   │   └── shop.cy.js
-│   └── pageobjects/
-│       ├── Homepage.js
-│       ├── DevDocsPage.js
-│       ├── GlobalCoveragePage.js
-│       ├── PricingPage.js
-│       ├── SignupPage.js
-│       └── ShopPage.js
+│   │   ├── shop.cy.js
+│   │   └── signup.cy.js
+│   │
+│   ├── fixtures/
+│   │   └── example.json
+│   │
+│   ├── pageobjects/
+│   │   ├── DevDocsPage.js
+│   │   ├── GlobalCoveragePage.js
+│   │   ├── Homepage.js
+│   │   ├── PricingPage.js
+│   │   ├── ShopPage.js
+│   │   └── SignupPage.js
+│   │
+│   └── support/
+│       ├── commands.js
+│       └── e2e.js
+│
+├── .gitignore
+├── README.md
 ├── cypress.config.js
 ├── cypress.docs.config.js
 ├── cypress.shop.config.js
-├── .github/
-│   └── workflows/
-│       └── cypress-tests.yml
+├── package-lock.json
 └── package.json
 ```
 
