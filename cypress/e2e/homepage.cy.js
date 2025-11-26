@@ -1,28 +1,29 @@
+import { Homepage } from '../pageobjects/Homepage';
+
+const homepage = new Homepage();
+
 describe('Homepage tests', () => {
   beforeEach(() => {
-    cy.visit('/');
+    homepage.open();
   });
 
-  it('should display a hero section title variant', () => {
-    cy.contains(/Conversational AI|Text To Speech|Speech To Text/i).should('be.visible');
+  it('should display hero title', () => {
+    homepage.assertHeroTitleIsVisible();
   });
 
-  it('should switch to the "Text to speech" tab', () => {
-    cy.get('button[aria-label="Text to speech"]').click();
-
-    cy.contains(/Effortless text-to-speech/i).should('be.visible');
+  it('switches to Text to speech', () => {
+    homepage.clickTextToSpeech();
+    homepage.assertEffortlessTextToSpeechTextIsVisible();
   });
 
-  it('should switch to the "Speech to text" tab', () => {
-    cy.get('button[aria-label="Speech to text"]').click();
-
-    cy.contains(/Real-time transcription/i).should('be.visible');
+  it('switches to Speech to text', () => {
+    homepage.clickSpeechToText();
+    homepage.assertRealTimeTranscriptionTextIsVisible();
   });
-  
-  it('should switch to the "HD Voice AI" tab', () => {
-    cy.get('button[aria-label="Text to speech"]').click();
-    cy.get('button[aria-label="HD Voice AI"]').click();
 
-    cy.contains(/True HD voice, end-to-end/i).should('be.visible'); 
+  it('switches to HD Voice AI', () => {
+    homepage.clickTextToSpeech();
+    homepage.clickHDVoiceAI();
+    homepage.assertTrueHDVoiceE2ETextIsVisible();
   });
 });

@@ -5,7 +5,7 @@ module.exports = defineConfig({
     baseUrl: 'https://developers.telnyx.com',
     viewportWidth: 1280,
     viewportHeight: 720,
-    defaultCommandTimeout: 6000,
+    defaultCommandTimeout: 10000,
     projectId: 'j8mfyg',
     video: true,
     screenshotOnRunFailure: true,

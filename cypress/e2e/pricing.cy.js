@@ -1,9 +1,14 @@
+import { PricingPage } from "../pageobjects/PricingPage";
+import { Homepage } from "../pageobjects/Homepage";
+
+const pricingPage = new PricingPage();
+const homepage = new Homepage();
+
 describe('Pricing page tests', () => {
   it('should navigate to the "Pricing" page after clicking the "View all pricing" button', () => {
-    cy.visit('/');
-    cy.get('#main-menu-content').contains('button', 'Pricing').click();
-    cy.get('[href="/pricing"]').contains('span', 'View all pricing').click();
-    cy.url().should('include', '/pricing');
-    cy.contains(/Flexible, transparent pricing with discounts as you scale./i).should('be.visible');
+    homepage.open();
+    homepage.clickPricingButton();
+    homepage.clickViewAllPricingButton();
+    pricingPage.assertOnPricingPage();
   });
 });

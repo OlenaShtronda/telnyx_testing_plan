@@ -1,37 +1,35 @@
+import { GlobalCoveragePage } from "../pageobjects/GlobalCoveragePage";
+import { Homepage } from "../pageobjects/Homepage";
+
+const homepage = new Homepage();
+const globalCoveragePage = new GlobalCoveragePage();
+
 describe('Global Coverage page tests', () => {
+  const countryToSelect = 'Ukraine';
+  
   beforeEach(() => {
-    cy.visit('/');   
+    homepage.open();
+    homepage.clickGlobalCoverageLink();
   });
 
+
   it('should display "Global Coverage" page', () => {    
-    cy.get('footer [href="/global-coverage"]').click(); 
-    cy.url().should('include', '/global-coverage');
-    cy.contains('h1', /global coverage/i).should('be.visible');
+    globalCoveragePage.assertOnGlobalCoveragePage();
   });
 
   it('"Services" tab should be selected by default', () => {  
-    cy.get('footer [href="/global-coverage"]').click();   
-    cy.contains('button', 'Services').should('have.attr', 'aria-selected', 'true');
+    globalCoveragePage.assertServicesTabIsSelected();
   });
 
   it('should expand the "Search country" dropdown menu after clicking', () => { 
-    cy.get('footer [href="/global-coverage"]').click();    
-    cy.contains('button', 'Search country').click();
-    cy.contains(/Regions/i).should('be.visible');
-
-    cy.contains('button', 'Search country')
-      .should('have.attr', 'aria-expanded', 'true')
-      .and('have.attr', 'data-state', 'open');
+    globalCoveragePage.openSearchCountryDropdown();
+    globalCoveragePage.assertSearchCountryDropdownIsExpanded();
   });
 
   it('should correctly filter services by country', () => { 
-    cy.get('footer [href="/global-coverage"]').click();    
-    cy.contains('button', 'Search country').click();
-    cy.get('[name="Ukraine"]').click();
-    cy.contains('button', '1 filter selected').click();
-
-    cy.get('tbody tr')
-      .should('have.length', 1)
-      .and('contain', 'Ukraine');
+    globalCoveragePage.openSearchCountryDropdown();
+    globalCoveragePage.selectCountryCheckbox(countryToSelect);
+    globalCoveragePage.closeSearchCountryDropdown();
+    globalCoveragePage.assertOnlySelectedCountryIsDisplayed(countryToSelect);
   });
 });
