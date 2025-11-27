@@ -41,7 +41,9 @@ npm install
 │   │   └── signup.cy.js
 │   │
 │   ├── fixtures/
-│   │   └── example.json
+│   │   ├── docsTestData.json
+│   │   ├── globalCoverageTestData.json
+│   │   └── shopTestData.json
 │   │
 │   ├── pageobjects/
 │   │   ├── DevDocsPage.js
@@ -62,6 +64,27 @@ npm install
 ├── cypress.shop.config.js
 ├── package-lock.json
 └── package.json
+```
+
+## Fixtures
+
+The project uses Cypress fixtures to store reusable test data for different test suites.
+Fixtures help keep tests clean, structured, and easy to maintain.
+
+Fixtures are located in: `cypress/fixtures/`
+
+Included files:
+
+- `docsTestData.json` — test data for Developer Docs tests
+- `globalCoverageTestData.json` — country lists and filters for Global Coverage tests
+- `shopTestData.json` — product, currency, and cart data for Shop tests
+
+Usage example:
+
+```
+cy.fixture('globalCoverageTestData').then((data) => {
+  // use fixture data here
+});
 ```
 
 ## Configuration Files
@@ -119,32 +142,47 @@ npm run cy:run:docs:record
 ## Test Coverage
 
 ### Homepage Tests
-- Hero title visibility
-- Text-to-speech tab switching
-- Speech-to-text tab switching
-- HD Voice AI tab switching
+- Hero title is visible
+- Switching tabs updates content correctly:
+  - **Text to Speech**
+  - **Speech to Text**
+  - **HD Voice AI**
 
 ### Developer Docs Tests
-- Search functionality
-- Search results filtering
+- Search modal opens correctly
+- Search field is visible and initially empty
+- User can type a search term
+- Search field displays typed value
+- First search result matches the entered search term
+- Test runs for multiple search terms from fixtures
 
 ### Global Coverage Tests
-- Page navigation and display
-- Services tab selection
-- Country search dropdown
-- Country filtering
+- Global Coverage page loads correctly
+- “Services” tab is selected by default
+- “Search country” dropdown expands on click
+- Filtering by country shows only the selected country
+- Filtering is tested for multiple countries from fixtures
 
 ### Pricing Tests
-- Navigation to pricing page
+- Navigating to the Pricing page via:
+  - Homepage → Pricing → View all pricing
 
 ### Sign-up Tests
-- Required form fields visibility
-- Promo code field toggle and labels
+- All required form fields and checkboxes are visible
+- Promo code field is hidden initially
+- Clicking “Apply a promo code” reveals the field
+- Correct labels are displayed for the promo code input
 
 ### Shop Tests
-- Cart management (add/remove items)
-- Currency selection
-- Price display validation
+- Cart is initially empty
+- Adding a product increases cart item count
+- Removing the last product makes cart empty again
+- Currency switching works correctly:
+  - Currency selector opens
+  - User can switch currencies
+  - Correct currency code is displayed
+  - Product prices update to correct currency symbol
+- Tests run for multiple currencies from fixtures
 
 ## CI/CD Integration
 
