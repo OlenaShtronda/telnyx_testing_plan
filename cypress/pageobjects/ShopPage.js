@@ -1,4 +1,4 @@
-export class ShopPage {
+class ShopPage {
   cartIcon = '#cart-icon-bubble';
   emptyCartText = 'Your cart is empty';
   closeCartButton = 'button.drawer__close';
@@ -64,3 +64,5 @@ export class ShopPage {
     cy.get(this.productPriceItems).first().should('contain.text', currencySign);
   }
 }
+
+export const shopPage = new ShopPage();

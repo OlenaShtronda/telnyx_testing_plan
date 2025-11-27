@@ -1,15 +1,18 @@
-import { ShopPage } from "../pageobjects/ShopPage";
-
-const shopPage = new ShopPage();
+import { shopPage } from "../pageobjects/ShopPage";
 
 describe('Shop page tests', () => {
-  const currencyToSelect = 'USD';
-  const currencySign = '$';
-  
+  let testData;
+
+  before(() => {
+    cy.fixture('shopTestData').then((data) => {
+      testData = data;
+    });
+  });
+
   beforeEach(() => {
     shopPage.open();
   });
-  
+
   it('should have at least 1 item in the cart after adding', () => {
     shopPage.openCart();
     shopPage.assertCartIsEmpty();
@@ -24,10 +27,14 @@ describe('Shop page tests', () => {
     shopPage.assertCartIsCompletelyEmpty();
   });
 
-  it('should correctly change currency and verify prices', () => {
-    shopPage.openCurrencySelector();
-    shopPage.selectCurrency(currencyToSelect);
-    shopPage.assertSelectedCurrency(currencyToSelect);
-    shopPage.assertProductPricesInCorrectCurrency(currencySign);
+  it('should correctly change currencies and verify prices', () => {
+    testData.currencies.forEach((currency) => {
+      cy.log(`Testing currency: code: ${currency.code} symbol: ${currency.symbol}`);
+
+      shopPage.openCurrencySelector();
+      shopPage.selectCurrency(currency.code);
+      shopPage.assertSelectedCurrency(currency.code);
+      shopPage.assertProductPricesInCorrectCurrency(currency.symbol);
+    });
   });
 });

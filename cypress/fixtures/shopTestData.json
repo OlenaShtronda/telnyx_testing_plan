@@ -1,0 +1,6 @@
+{
+  "currencies": [
+    { "code": "USD", "symbol": "$" },
+    { "code": "EUR", "symbol": "€" }
+  ]
+}

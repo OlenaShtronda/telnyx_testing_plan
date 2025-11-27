@@ -1,4 +1,4 @@
-export class Homepage {
+class Homepage {
   heroTitle = /Conversational AI|Text To Speech|Speech To Text/i;
   effortlessTextToSpeechText = /Effortless text-to-speech/i;
   realTimeTranscriptionText = /Real-time transcription/i;
@@ -61,3 +61,5 @@ export class Homepage {
     cy.get(this.signUpLink).click();
   }
 }
+
+export const homepage = new Homepage();

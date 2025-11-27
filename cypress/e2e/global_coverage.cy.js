@@ -1,12 +1,15 @@
-import { GlobalCoveragePage } from "../pageobjects/GlobalCoveragePage";
-import { Homepage } from "../pageobjects/Homepage";
-
-const homepage = new Homepage();
-const globalCoveragePage = new GlobalCoveragePage();
+import { globalCoveragePage } from "../pageobjects/GlobalCoveragePage";
+import { homepage } from "../pageobjects/Homepage";
 
 describe('Global Coverage page tests', () => {
-  const countryToSelect = 'Ukraine';
-  
+  let testData;
+
+  before(() => {
+    cy.fixture('globalCoverageTestData').then((data) => {
+      testData = data;
+    });
+  });
+
   beforeEach(() => {
     homepage.open();
     homepage.clickGlobalCoverageLink();
@@ -27,9 +30,15 @@ describe('Global Coverage page tests', () => {
   });
 
   it('should correctly filter services by country', () => { 
-    globalCoveragePage.openSearchCountryDropdown();
-    globalCoveragePage.selectCountryCheckbox(countryToSelect);
-    globalCoveragePage.closeSearchCountryDropdown();
-    globalCoveragePage.assertOnlySelectedCountryIsDisplayed(countryToSelect);
+    testData.countries.forEach((country) => {
+      cy.log(`Testing country ${country}`);
+
+      homepage.open();
+      homepage.clickGlobalCoverageLink();
+      globalCoveragePage.openSearchCountryDropdown();
+      globalCoveragePage.selectCountryCheckbox(country);
+      globalCoveragePage.closeSearchCountryDropdown();
+      globalCoveragePage.assertOnlySelectedCountryIsDisplayed(country);
+    })
   });
 });

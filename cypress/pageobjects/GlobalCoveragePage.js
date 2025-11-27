@@ -1,4 +1,4 @@
-export class GlobalCoveragePage {
+class GlobalCoveragePage {
   globalCoverageText = /global coverage/i;
   searchCountryText = 'Search country';
   servicesText = 'Services';
@@ -45,3 +45,5 @@ export class GlobalCoveragePage {
       .and('contain', country);
   }
 }
+
+export const globalCoveragePage = new GlobalCoveragePage();

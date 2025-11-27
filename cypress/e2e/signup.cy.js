@@ -1,8 +1,5 @@
-import { SignUpPage } from "../pageobjects/SignupPage";
-import { Homepage } from "../pageobjects/Homepage";
-
-const signUpPage = new SignUpPage();
-const homepage = new Homepage();
+import { signUpPage } from "../pageobjects/SignupPage";
+import { homepage } from "../pageobjects/Homepage";
 
 describe('Sign-up form content tests', () => {
   beforeEach(() => {

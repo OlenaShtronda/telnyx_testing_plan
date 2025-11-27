@@ -1,6 +1,4 @@
-import { Homepage } from '../pageobjects/Homepage';
-
-const homepage = new Homepage();
+import { homepage } from '../pageobjects/Homepage';
 
 describe('Homepage tests', () => {
   beforeEach(() => {

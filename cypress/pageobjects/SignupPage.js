@@ -1,4 +1,4 @@
-export class SignUpPage {
+class SignUpPage {
   email = '#email';
   firstName = '#first_name';
   lastName = '#last_name';
@@ -44,3 +44,5 @@ export class SignUpPage {
       .and('contain.text', this.optionalLabelText);
   }
 }
+
+export const signUpPage = new SignUpPage();

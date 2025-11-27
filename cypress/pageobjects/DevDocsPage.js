@@ -1,4 +1,4 @@
-export class DevDocsPage {
+class DevDocsPage {
   searchButton = '#search-bar-entry';
   searchField = '#search-input';
   searchResult = 'div[role="option"]';
@@ -30,3 +30,5 @@ export class DevDocsPage {
     cy.get(this.searchResult).first().should('contain.text', item);
   }
 }
+
+export const devDocsPage = new DevDocsPage();
