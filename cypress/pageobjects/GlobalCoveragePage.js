@@ -1,8 +1,8 @@
 class GlobalCoveragePage {
-  globalCoverageText = /global coverage/i;
+  globalCoverageText = 'Global coverage';
   searchCountryText = 'Search country';
   servicesText = 'Services';
-  regionsText = /Regions/i;
+  regionsText = 'Regions';
   filterSelectedText = '1 filter selected';
 
   open() {

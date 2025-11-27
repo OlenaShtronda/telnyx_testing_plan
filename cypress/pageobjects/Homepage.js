@@ -1,8 +1,8 @@
 class Homepage {
   heroTitle = /Conversational AI|Text To Speech|Speech To Text/i;
-  effortlessTextToSpeechText = /Effortless text-to-speech/i;
-  realTimeTranscriptionText = /Real-time transcription/i;
-  trueHDVoiceE2EText = /True HD voice, end-to-end/i;
+  effortlessTextToSpeechText = 'Effortless text-to-speech';
+  realTimeTranscriptionText = 'Real-time transcription';
+  trueHDVoiceE2EText = 'True HD voice, end-to-end';
   textToSpeechTab = 'button[aria-label="Text to speech"]';
   speechToTextTab = 'button[aria-label="Speech to text"]';
   hdVoiceAITab = 'button[aria-label="HD Voice AI"]';

@@ -1,5 +1,5 @@
 class PricingPage {
-  flexibleTransparentPricingText = /Flexible, transparent pricing with discounts as you scale./i;
+  flexibleTransparentPricingText = 'Flexible, transparent pricing with discounts as you scale.';
 
   assertOnPricingPage() {
     cy.url().should('include', '/pricing');
