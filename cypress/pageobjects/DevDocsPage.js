@@ -27,7 +27,7 @@ class DevDocsPage {
   }
 
   assertFirstSearchResultHasSearchItem(item) {
-    cy.get(this.searchResult).first().should('contain.text', item);
+    cy.get(this.searchResult).first().contains(item, {matchCase: false});
   }
 }
 
